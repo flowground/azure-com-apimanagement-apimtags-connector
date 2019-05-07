@@ -1,0 +1,152 @@
+{
+    "title": "ApiManagementClient",
+    "description": "Use these REST APIs for performing operations on Tag entity in your Azure API Management deployment. Tags can be assigned to APIs, Operations and Products.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/apimanagement-apimtags/2018-06-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Tag_ListByService": {
+            "main": "./lib/actions/Tag_ListByService.js",
+            "title": "Lists a collection of tags defined within a service instance.",
+            "description": "Lists a collection of tags defined within a service instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Tag_ListByService.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Tag_Delete": {
+            "main": "./lib/actions/Tag_Delete.js",
+            "title": "Deletes specific tag of the API Management service instance.",
+            "description": "Deletes specific tag of the API Management service instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Tag_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Tag_Get": {
+            "main": "./lib/actions/Tag_Get.js",
+            "title": "Gets the details of the tag specified by its identifier.",
+            "description": "Gets the details of the tag specified by its identifier.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Tag_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Tag_GetEntityState": {
+            "main": "./lib/actions/Tag_GetEntityState.js",
+            "title": "Gets the entity state version of the tag specified by its identifier.",
+            "description": "Gets the entity state version of the tag specified by its identifier.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Tag_GetEntityState.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Tag_Update": {
+            "main": "./lib/actions/Tag_Update.js",
+            "title": "Updates the details of the tag specified by its identifier.",
+            "description": "Updates the details of the tag specified by its identifier.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Tag_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Tag_CreateOrUpdate": {
+            "main": "./lib/actions/Tag_CreateOrUpdate.js",
+            "title": "Creates a tag.",
+            "description": "Creates a tag.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Tag_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
